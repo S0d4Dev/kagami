@@ -26,7 +26,7 @@ Go to [Numworks's app installer](https://my.numworks.com/apps), connect your cal
 
 ## License
 This project uses the MIT license. 
-A copy of the license can be found [here](https://github.com/S0d4D3v/kagami/blob/master/LICENSE.md).
+A copy of the license can be found [here](https://github.com/S0d4D3v/kagami/blob/master/LICENSE).
 
 The `build.rs` and `.cargo/config.toml` files are from Numworks, under the **BSD-3 Clause license**, from their [rust sample app](https://github.com/numworks/epsilon-sample-app-rust). 
-The complete license is available both [in their repository](https://github.com/numworks/epsilon-sample-app-rust/blob/master/LICENSE) and [here](https://github.com/S0d4D3v/kagami/blob/master/NW_LICENSE.md).
+The complete license is available both [in their repository](https://github.com/numworks/epsilon-sample-app-rust/blob/master/LICENSE) and [here](https://github.com/S0d4D3v/kagami/blob/master/NW_LICENSE).
