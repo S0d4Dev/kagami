@@ -20,7 +20,7 @@ In order to get the app, you can download the .nwa file from the **Releases page
 1. Clone this repository : `git clone https://github.com/S0d4D3v/kagami`
 2. Go to the project folder : `cd kagami`
 3. Install cargo with [rustup](https://rustup.rs/)
-4. Build : `cargo build --release`
+4. Build : `cargo build`
 
 Go to [Numworks's app installer](https://my.numworks.com/apps), connect your calculator and find the Kagami app (either with .nwa if you downloaded it, or with no extension if built yourself).
 
