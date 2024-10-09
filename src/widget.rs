@@ -1,6 +1,6 @@
 use crate::logic;
-use crate::draw::{line, rounded_rect, dot, string, Text, Fastforwarding};
-use crate::logic::display::{wait_for_vblank, push_rect_uniform};
+use crate::draw::{line, rounded_rect, dot, Text, Fastforwarding};
+use crate::logic::display::{wait_for_vblank, push_rect_uniform, draw_string};
 use crate::theme::Theme;
 
 pub fn rect_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
@@ -24,10 +24,21 @@ pub fn rect_pressed_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
     rounded_rect(logic::Point{x: rect.x, y: rect.y - 6}, rect.width, rect.height, thickness, theme.accent);
 }
 
-pub fn chracter_widget(pos: logic::Point, theme: Theme, text: Text) {
+pub fn character_widget(pos: logic::Point, theme: Theme, text: Text) {
     line(logic::Point{x: pos.x, y: pos.y+5}, 40, 14, theme.subtext, false);
     line(logic::Point{x: pos.x, y: pos.y}, 40, 15, theme.accent, false);
-    string(text.text, logic::Point{x: pos.x + (15/text.text.chars().count()) as u16, y: pos.y-10}, text.big, text.text_color, text.bg_color, text.delay);
+    unsafe {
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 10}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.accent});
+    }
+}
+
+pub fn info_widget(pos: logic::Point, theme: Theme, text: Text) {
+    line(logic::Point{x: pos.x, y: pos.y}, 40, 15, theme.accent, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 40, 12, theme.tertiary_accent, false);
+    
+    unsafe {
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 8}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.tertiary_accent});
+    }
 }
 
 pub fn theme_widget(theme: Theme) {
@@ -36,7 +47,9 @@ pub fn theme_widget(theme: Theme) {
     line(logic::Point{x: 30, y: 25}, 210, 20, theme.overlay, false);
     wait_for_vblank();
     line(logic::Point{x: 90, y: 25}, 150, 14, theme.bg, false);
-    string(theme.name, logic::Point{x: 92, y: 17}, true, theme.text, theme.bg, 0);
+    unsafe { 
+        draw_string(theme.name.as_ptr(), logic::Point{x: 92, y: 17}, true, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.bg});
+    }
     dot(logic::Point{x: 30, y: 25}, 14, theme.tertiary_accent, 0, Fastforwarding{enabled: false, scale: 1.0});
     dot(logic::Point{x: 45, y: 25}, 14, theme.secondary_accent, 0, Fastforwarding{enabled: false, scale: 1.0});
     dot(logic::Point{x: 60, y: 25}, 14, theme.accent, 0, Fastforwarding{enabled: false, scale: 1.0});

@@ -3,6 +3,7 @@ use crate::logic;
 
 pub struct Text<'a> {
     pub text: &'a str,
+    pub xoffset: u16,
     pub big: bool,
     pub text_color: u16,
     pub bg_color: u16,
@@ -17,21 +18,6 @@ pub struct Fastforwarding {
 
 pub fn clearscreen(default_color:u16) {
     logic::display::push_rect_uniform(logic::Rect{ x: 0, y: 0, width: 320, height: 240}, logic::Color{rgb565: default_color});
-}
-
-pub fn string(text: &str, pos: logic::Point, big: bool, text_color: u16, bg_color: u16, delay: u32) {
-    // for (i, c) in text.chars().enumerate() {
-    //     logic::display::draw_string(
-    //         &(c as u8),
-    //         logic::Point { x: pos.x + i as u16 * 10, y: pos.y },
-    //         big,
-    //         logic::Color { rgb565: text_color },
-    //         logic::Color { rgb565: bg_color },
-    //     );
-    //     logic::timing::usleep(delay);
-    // }
-    unsafe {logic::display::draw_string(text.as_ptr(),logic::Point { x: pos.x, y: pos.y },big,logic::Color { rgb565: text_color },logic::Color { rgb565: bg_color },); }
-    logic::timing::usleep(delay);
 }
 
 pub fn dot(pos: logic::Point, radius: u16, color: u16, delay: u32, fastforwarding: Fastforwarding) {

@@ -14,7 +14,7 @@ pub struct Theme<'a> {
 pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
     match theme {
         Some(0) => Theme  {
-            name : "Numworks Light",
+            name : "Numworks Light\0",
             id : 0,
             bg : 0xffff,
             text : 0x0000,
@@ -25,7 +25,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             tertiary_accent : 0xcca7,
         },
         Some(1) => Theme {
-            name : "Numworks Dark",
+            name : "Numworks Dark\0",
             id : 1,
             bg : 0x18c3,
             text : 0xffff,
@@ -36,7 +36,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             tertiary_accent : 0xcca7,
         },
         Some(2) => Theme {
-            name : "Omega Light",
+            name : "Omega Light\0",
             id : 2,
             bg : 0xffff,
             text : 0x0000,
@@ -47,7 +47,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             tertiary_accent : 0x9145,
         },
         Some(3) => Theme {
-            name : "Omega Dark",
+            name : "Omega Dark\0",
             id : 3,
             bg : 0x18c3,
             text : 0xffff,
@@ -58,7 +58,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             tertiary_accent : 0x9145,
         },
         Some(4) => Theme {
-            name : "Candy",
+            name : "Candy\0",
             id : 4,
             bg : 0x1967,
             text : 0xc77e,
@@ -69,7 +69,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             tertiary_accent : 0xea93,
         },
         _ => Theme {
-            name : "Numworks Light",
+            name : "Numworks Light\0",
             id : 0,
             bg : 0xffff,
             text : 0x0000,
