@@ -1,6 +1,6 @@
 # A japanese character table
 
-This project is a simple Japanese character table with a nice interface and features, to run on a Numworks Character.
+This project is a simple Japanese character table with a nice interface and features, to run on a Numworks Calculator.
 
 *The project is still in developement, and all the characters and features aren't included. Some already done features, such as the theme, may change in future versions.*
 
