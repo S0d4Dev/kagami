@@ -25,19 +25,19 @@ pub fn rect_pressed_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
 }
 
 pub fn character_widget(pos: logic::Point, theme: Theme, text: Text) {
-    line(logic::Point{x: pos.x, y: pos.y+5}, 40, 14, theme.subtext, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 40, 15, theme.accent, false);
+    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 15, theme.subtext, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 70, 16, theme.accent, false);
     unsafe {
-        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 10}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.accent});
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x + text.xoffset, y: pos.y - 10}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.accent});
     }
 }
 
 pub fn info_widget(pos: logic::Point, theme: Theme, text: Text) {
-    line(logic::Point{x: pos.x, y: pos.y}, 40, 15, theme.accent, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 40, 12, theme.tertiary_accent, false);
-    
+    line(logic::Point{x: pos.x, y: pos.y+5}, 30, 10, theme.text, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 30, 12, theme.accent, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 30, 8, theme.tertiary_accent, false);
     unsafe {
-        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 8}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.tertiary_accent});
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 6}, false, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.tertiary_accent});
     }
 }
 
@@ -57,18 +57,18 @@ pub fn theme_widget(theme: Theme) {
 
 pub fn difficulty_widget(pos: logic::Point, theme: Theme, level: u8) {
     wait_for_vblank();
-    line(logic::Point{x: pos.x, y: pos.y+5}, 50, 10, theme.subtext, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 50, 10, theme.accent, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 50, 6, theme.bg, false);
+    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 16, theme.subtext, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 70, 16, theme.accent, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 70, 6, theme.bg, false);
     if level == 1 {
-        line(logic::Point{x: pos.x, y: pos.y}, 10, 5, theme.tertiary_accent, false);
+        line(logic::Point{x: pos.x, y: pos.y}, 5, 10, theme.tertiary_accent, false);
     } else if level == 2 {
-        line(logic::Point{x: pos.x, y: pos.y}, 20, 5, theme.tertiary_accent, false);
+        line(logic::Point{x: pos.x, y: pos.y}, 15, 10, theme.tertiary_accent, false);
     } else if level == 3 {
-        line(logic::Point{x: pos.x, y: pos.y}, 30, 5, theme.tertiary_accent, false);
+        line(logic::Point{x: pos.x, y: pos.y}, 30, 10, theme.tertiary_accent, false);
     } else if level == 4 {
-        line(logic::Point{x: pos.x, y: pos.y}, 40, 5, theme.tertiary_accent, false);
+        line(logic::Point{x: pos.x, y: pos.y}, 50, 10, theme.tertiary_accent, false);
     } else if level == 5 {
-        line(logic::Point{x: pos.x, y: pos.y}, 50, 5, theme.tertiary_accent, false);
+        line(logic::Point{x: pos.x, y: pos.y}, 70, 10, theme.tertiary_accent, false);
     }
 }
