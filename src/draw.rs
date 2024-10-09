@@ -7,7 +7,6 @@ pub struct Text<'a> {
     pub big: bool,
     pub text_color: u16,
     pub bg_color: u16,
-    pub delay: u32,
 }
 
 #[derive(Copy, Clone)]

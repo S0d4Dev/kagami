@@ -16,32 +16,32 @@ pub fn page() {
             draw::clearscreen(theme.bg);
             widget::rect_widget(logic::Rect{x: 10, y: 20, width: 190, height: 210}, theme, 6);
             widget::rect_widget(logic::Rect{x: 220, y: 20, width: 90, height: 210}, theme, 6);
-            widget::info_widget(logic::Point{x: 225, y: 120}, theme, draw::Text{text: "clear\0", xoffset: 5, big: true, text_color: theme.accent, bg_color: theme.tertiary_accent, delay: 0});
+            widget::info_widget(logic::Point{x: 225, y: 120}, theme, draw::Text{text: "clear\0", xoffset: 5, big: true, text_color: theme.accent, bg_color: theme.tertiary_accent});
             if characters_switched {
                 match selected_character {
                     0 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "A\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "A\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 2);
                         hiragana::a(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::a(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::a(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
                     }
                     1 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "I\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "I\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 1);
                         hiragana::i(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::i(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::i(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
                     }
                     2 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "U\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "U\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 2);
                         hiragana::u(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::u(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::u(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
                     }
                     3 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "E\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "E\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 1);
                         hiragana::e(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::e(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
@@ -52,28 +52,28 @@ pub fn page() {
             } else {
                 match selected_character {
                     0 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "A\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "A\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 4);
                         katakana::a(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::a(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::a(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 4.0});
                     }
                     1 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "I\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "I\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 2);
                         katakana::i(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::i(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::i(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 4.0});
                     }
                     2 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "U\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "U\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 3);
                         katakana::u(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::u(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::u(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 4.0});
                     }
                     3 => {
-                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "E\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent, delay: 0});
+                        widget::character_widget(logic::Point{x: 245, y: 50}, theme, draw::Text{text: "E\0", xoffset: 25, big: true, text_color: theme.text, bg_color: theme.accent});
                         widget::difficulty_widget(logic::Point{x: 240, y: 80},theme, 4);
                         katakana::e(logic::Point{x: 240, y: 145}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::e(logic::Point{x: 240, y: 140}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
