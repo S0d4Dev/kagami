@@ -85,10 +85,14 @@ pub fn curve(pos: logic::Point, length: u16, thickness: u16, orientation: f64, c
             },
             thickness,
             color,
-            if logic::keyboard::KeyboardState::scan().key_down(logic::keyboard::Key::Home) {
+            if i >= length - 1 {
                 0
             } else {
-                delay
+                if logic::keyboard::KeyboardState::scan().key_down(logic::keyboard::Key::Home) || logic::keyboard::KeyboardState::scan().key_down(logic::keyboard::Key::Left) || logic::keyboard::KeyboardState::scan().key_down(logic::keyboard::Key::Right) {
+                    1
+                } else {
+                    delay
+                }
             },
             fastforwarding,
         );
@@ -98,47 +102,11 @@ pub fn curve(pos: logic::Point, length: u16, thickness: u16, orientation: f64, c
 pub fn rounded_rect(pos: logic::Point, length: u16, height: u16, thickness: u16, color: u16) {
     logic::display::wait_for_vblank();
     logic::display::push_rect_uniform(logic::Rect{x: pos.x + 8, y: pos.y - thickness, width: length-16, height: thickness * 2}, logic::Color{rgb565: color});
-    curve(
-        logic::Point{ x: pos.x + length - 7, y: pos.y},
-        11,
-        thickness,
-        0.0,
-        color,
-        0,
-        0.8,
-        Fastforwarding{enabled : false, scale: 1.0},
-    );
+    curve(logic::Point{ x: pos.x + length - 7, y: pos.y},11,thickness,0.0,color,0,0.8,Fastforwarding{enabled : false, scale: 1.0});
     logic::display::push_rect_uniform(logic::Rect{x: pos.x + length - thickness, y: pos.y + 8, width: thickness * 2, height: height - 16}, logic::Color{rgb565: color});
-    curve(
-        logic::Point{ x: pos.x + length, y: pos.y + height - 7},
-        11,
-        thickness,
-        90.0,
-        color,
-        0,
-        0.8,
-        Fastforwarding{enabled : false, scale: 1.0},
-    );
+    curve(logic::Point{ x: pos.x + length, y: pos.y + height - 7},11,thickness,90.0,color,0,0.8,Fastforwarding{enabled : false, scale: 1.0});
     logic::display::push_rect_uniform(logic::Rect{x: pos.x + 8, y: pos.y + height - thickness, width: length - 16, height: thickness * 2}, logic::Color{rgb565: color});
-    curve(
-        logic::Point{ x: pos.x + 7, y: pos.y + height},
-        11,
-        thickness,
-        180.0,
-        color,
-        0,
-        0.8,
-        Fastforwarding{enabled : false, scale: 1.0},
-    );
+    curve(logic::Point{ x: pos.x + 7, y: pos.y + height},11,thickness,180.0,color,0,0.8,Fastforwarding{enabled : false, scale: 1.0});
     logic::display::push_rect_uniform(logic::Rect{x: pos.x - thickness, y: pos.y + 8, width: thickness * 2, height: height - 16}, logic::Color{rgb565: color});
-    curve(
-        logic::Point{ x: pos.x, y: pos.y + 7},
-        11,
-        thickness,
-        270.0,
-        color,
-        0,
-        0.8,
-        Fastforwarding{enabled : false, scale: 1.0},
-    );
+    curve(logic::Point{ x: pos.x, y: pos.y + 7},11,thickness,270.0,color,0,0.8,Fastforwarding{enabled : false, scale: 1.0});
 }

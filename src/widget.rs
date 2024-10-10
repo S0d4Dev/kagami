@@ -6,38 +6,24 @@ use crate::theme::Theme;
 pub fn rect_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
     wait_for_vblank();
     push_rect_uniform(logic::Rect{x : rect.x - 1, y: rect.y, width: rect.width, height: rect.height + 1}, logic::Color{rgb565: theme.bg});
-    rounded_rect(logic::Point{x: rect.x, y: rect.y + 1}, rect.width, rect.height, thickness-2, theme.text);
+    rounded_rect(logic::Point{x: rect.x, y: rect.y + 2}, rect.width, rect.height, thickness-2, theme.overlay);
     rounded_rect(logic::Point{x: rect.x, y: rect.y - 4}, rect.width, rect.height, thickness, theme.accent);
 }
 
-pub fn rect_selected_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
-    wait_for_vblank();
-    push_rect_uniform(logic::Rect{x : rect.x - 5, y: rect.y, width: rect.width, height: rect.height + 5}, logic::Color{rgb565: theme.bg});
-    rounded_rect(logic::Point{x: rect.x, y: rect.y + 1}, rect.width, rect.height, thickness-2, theme.text);
-    rounded_rect(logic::Point{x: rect.x, y: rect.y - 10}, rect.width, rect.height, thickness, theme.accent);
-}
-
-pub fn rect_pressed_widget(rect: logic::Rect, theme: Theme, thickness: u16) {
-    wait_for_vblank();
-    push_rect_uniform(logic::Rect{x : rect.x - 5, y: rect.y, width: rect.width, height: rect.height + 3}, logic::Color{rgb565: theme.bg});
-    rounded_rect(logic::Point{x: rect.x, y: rect.y + 1}, rect.width, rect.height, thickness-2, theme.text);
-    rounded_rect(logic::Point{x: rect.x, y: rect.y - 6}, rect.width, rect.height, thickness, theme.accent);
-}
-
 pub fn character_widget(pos: logic::Point, theme: Theme, text: Text) {
-    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 15, theme.subtext, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 70, 16, theme.accent, false);
+    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 15, theme.overlay, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 70, 16, text.bg_color, false);
     unsafe {
-        draw_string(text.text.as_ptr(), logic::Point{x: pos.x + text.xoffset, y: pos.y - 10}, text.big, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.accent});
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x + text.xoffset, y: pos.y - 10}, text.big, logic::Color{rgb565 : text.text_color}, logic::Color{rgb565 : text.bg_color});
     }
 }
 
 pub fn info_widget(pos: logic::Point, theme: Theme, text: Text) {
-    line(logic::Point{x: pos.x, y: pos.y+5}, 30, 10, theme.text, false);
+    line(logic::Point{x: pos.x, y: pos.y+5}, 30, 10, theme.overlay, false);
     line(logic::Point{x: pos.x, y: pos.y}, 30, 12, theme.accent, false);
-    line(logic::Point{x: pos.x, y: pos.y}, 30, 8, theme.tertiary_accent, false);
+    line(logic::Point{x: pos.x, y: pos.y}, 30, 8, text.bg_color, false);
     unsafe {
-        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 6}, false, logic::Color{rgb565 : theme.text}, logic::Color{rgb565 : theme.tertiary_accent});
+        draw_string(text.text.as_ptr(), logic::Point{x: pos.x - 10 + text.xoffset, y: pos.y - 6}, false, logic::Color{rgb565 : text.text_color}, logic::Color{rgb565 : text.bg_color});
     }
 }
 
@@ -57,7 +43,7 @@ pub fn theme_widget(theme: Theme) {
 
 pub fn difficulty_widget(pos: logic::Point, theme: Theme, level: u8) {
     wait_for_vblank();
-    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 16, theme.subtext, false);
+    line(logic::Point{x: pos.x, y: pos.y+5}, 70, 16, theme.overlay, false);
     line(logic::Point{x: pos.x, y: pos.y}, 70, 16, theme.accent, false);
     line(logic::Point{x: pos.x, y: pos.y}, 70, 6, theme.bg, false);
     if level == 1 {
