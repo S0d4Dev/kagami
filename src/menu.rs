@@ -6,6 +6,7 @@ use crate::characters::{hiragana, katakana};
 
 pub fn page() {
     let mut theme = theme::theme(None);
+    let themecount = theme::themecount();
     let mut selected_character: u8 = 0;
     let mut characters_switched: bool = false;
     let mut needs_redraw: bool = true;
@@ -99,14 +100,14 @@ pub fn page() {
         }
         if logic::keypress(logic::keyboard::Key::Left) && shift_pressed {
             if theme.id == 0 {
-                theme = theme::theme(Some(4));
+                theme = theme::theme(Some(themecount-1));
             } else {
                 theme = theme::theme(Some(theme.id.saturating_sub(1)));
             }
             widget::theme_widget(theme);
             logic::timing::msleep(100);
         } else if logic::keypress(logic::keyboard::Key::Right) && shift_pressed {
-            if theme.id == 4 {
+            if theme.id == themecount-1 {
                 theme = theme::theme(Some(0));
             } else {
                 theme = theme::theme(Some(theme.id.saturating_add(1)));

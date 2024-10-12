@@ -11,6 +11,10 @@ pub struct Theme<'a> {
     pub tertiary_accent : u16,
 }
 
+pub fn themecount() -> u8 {
+    5
+}
+
 pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
     match theme {
         Some(0) => Theme  {
@@ -68,6 +72,7 @@ pub fn theme<'a>(theme: Option<u8>) -> Theme<'a> {
             secondary_accent : 0x4293,
             tertiary_accent : 0xfd57,
         },
+        // Other themes
         _ => Theme {
             name : "Numworks Light\0",
             id : 0,
