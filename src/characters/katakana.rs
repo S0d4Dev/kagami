@@ -7,14 +7,14 @@ pub fn a(pos: Point, scale: f64, thickness: u16, color: u16, delay: u32, fastfor
 }
 
 pub fn i(pos: Point, scale: f64, thickness: u16, color: u16, delay: u32, fastforwarding: draw::Fastforwarding) {
-    draw::curve(Point{x: pos.x+((10_f64*scale) as u16), y: pos.y+((34_f64*scale) as u16)}, (90_f64*scale) as u16, thickness, 0.0, color, delay, -0.4, fastforwarding);
+    draw::curve(Point{x: pos.x+((10_f64*scale) as u16), y: pos.y+((34_f64*scale) as u16)}, (90_f64*scale) as u16, thickness, 0.0, color, delay, -0.3, fastforwarding);
     draw::curve(Point{x: pos.x+((50_f64*scale) as u16), y: pos.y+((30_f64*scale) as u16)}, (70_f64*scale) as u16, thickness, 90.0, color, delay, 0.0, fastforwarding);
 }
 
 pub fn u(pos: Point, scale: f64, thickness: u16, color: u16, delay: u32, fastforwarding: draw::Fastforwarding) {
-    draw::curve(Point{x: pos.x+((50_f64*scale) as u16), y: pos.y+((5_f64*scale) as u16)}, (10_f64*scale) as u16, thickness, 90.0, color, delay, 0.0, fastforwarding);
-    draw::curve(Point{x: pos.x+((10_f64*scale) as u16), y: pos.y+((20_f64*scale) as u16)}, (85_f64*scale) as u16, thickness, 0.0, color, delay, 0.0, fastforwarding);
-    draw::curve(Point{x: pos.x+((95_f64*scale) as u16), y: pos.y+((20_f64*scale) as u16)}, (100_f64*scale) as u16, thickness, 90.0, color, delay, 0.5, fastforwarding);
+    draw::curve(Point{x: pos.x+((50_f64*scale) as u16), y: pos.y+((10_f64*scale) as u16)}, (10_f64*scale) as u16, thickness, 90.0, color, delay, 0.0, fastforwarding);
+    draw::curve(Point{x: pos.x+((10_f64*scale) as u16), y: pos.y+((25_f64*scale) as u16)}, (85_f64*scale) as u16, thickness, 0.0, color, delay, 0.0, fastforwarding);
+    draw::curve(Point{x: pos.x+((95_f64*scale) as u16), y: pos.y+((25_f64*scale) as u16)}, (100_f64*scale) as u16, thickness, 90.0, color, delay, 0.7, fastforwarding);
 }
 
 pub fn e(pos: Point, scale: f64, thickness: u16, color: u16, delay: u32, fastforwarding: draw::Fastforwarding) {

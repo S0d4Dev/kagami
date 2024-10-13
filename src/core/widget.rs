@@ -10,6 +10,11 @@ pub fn rect_widget(rect: logic::Rect, theme: theme::Theme, thickness: u16) {
     draw::rounded_rect(logic::Point{x: rect.x, y: rect.y - 4}, rect.width, rect.height, thickness, theme.accent);
 }
 
+pub fn guide_lines(theme: theme::Theme) {
+    draw::line(logic::Point{x: 30, y: 120}, 150, 8, theme.overlay, false);
+    draw::line(logic::Point{x: 105, y: 45}, 155, 8, theme.overlay, true);
+}
+
 pub fn character_widget(pos: logic::Point, theme: theme::Theme, text: draw::Text) {
     draw::line(logic::Point{x: pos.x, y: pos.y+5}, 70, 15, theme.overlay, false);
     draw::line(logic::Point{x: pos.x, y: pos.y}, 70, 16, text.bg_color, false);
@@ -62,5 +67,5 @@ pub fn difficulty_widget(pos: logic::Point, theme: theme::Theme, level: u8) {
     draw::line(logic::Point{x: pos.x, y: pos.y+5}, 70, 16, theme.overlay, false);
     draw::line(logic::Point{x: pos.x, y: pos.y}, 70, 16, theme.accent, false);
     draw::line(logic::Point{x: pos.x, y: pos.y}, 70, 6, theme.bg, false);
-    draw::line(logic::Point{x: pos.x, y: pos.y}, (12*level).into(), 10, theme.tertiary_accent, false);
+    draw::line(logic::Point{x: pos.x, y: pos.y}, (14*level).into(), 10, theme.tertiary_accent, false);
 }

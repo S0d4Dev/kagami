@@ -11,7 +11,7 @@ pub struct Text<'a> {
 #[derive(Copy, Clone)]
 pub struct Fastforwarding {
     pub enabled: bool,
-    pub scale: f32, 
+    pub scale: f32,
 }
 
 pub fn clearscreen(default_color:u16) {
@@ -44,6 +44,8 @@ pub fn dot(pos: logic::Point, radius: u16, color: u16, delay: u32, fastforwardin
             logic::timing::usleep(delay-((delay as f32 / fastforwarding.scale) as u32));
         } else if logic::keypress(logic::keyboard::Key::Minus) {
             logic::timing::usleep(delay+((delay as f32 / fastforwarding.scale) as u32));
+        } else if logic::keypress(logic::keyboard::Key::Left) || logic::keypress(logic::keyboard::Key::Right) {
+            logic::timing::usleep(300);
         } else if logic::keypress(logic::keyboard::Key::Exe) {
             logic::timing::usleep(0);
         } else {
@@ -55,14 +57,14 @@ pub fn dot(pos: logic::Point, radius: u16, color: u16, delay: u32, fastforwardin
 }
 
 pub fn line(pos: logic::Point, length: u16, thickness: u16, color: u16, column: bool) {
-    dot(logic::Point{x: pos.x, y: pos.y}, thickness, color, 0, Fastforwarding{enabled: false, scale: 1.0});
+    dot(logic::Point{x: pos.x+1, y: pos.y}, thickness, color, 0, Fastforwarding{enabled: false, scale: 1.0});
     if column {
         logic::display::push_rect_uniform(
             logic::Rect{x: pos.x-thickness+1, y: pos.y, width: (thickness*2)-1, height: length}, 
             logic::Color {rgb565: color}
         );
         dot(
-            logic::Point{x: pos.x, y: pos.y+length}, 
+            logic::Point{x: pos.x+1, y: pos.y+length}, 
             thickness, 
             color, 
             0, 
@@ -105,7 +107,7 @@ pub fn curve(pos: logic::Point, length: u16, thickness: u16, orientation: f64, c
             },
             thickness,
             color,
-            if i >= length - 1 || logic::keypress(logic::keyboard::Key::Left) || logic::keypress(logic::keyboard::Key::Right) {
+            if i >= length - 1{
                 0
             } else {
                 delay
