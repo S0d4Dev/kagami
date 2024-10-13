@@ -1,5 +1,4 @@
-use crate::draw;
-use crate::logic::Point;
+use crate::core::{draw, logic::Point};
 
 pub fn a(pos: Point, scale: f64, thickness: u16, color: u16, delay: u32, fastforwarding: draw::Fastforwarding) {
     draw::curve(Point{x: pos.x, y: pos.y+((20_f64*scale) as u16)}, (100_f64*scale) as u16, thickness, 0.0, color, delay, 0.0, fastforwarding);

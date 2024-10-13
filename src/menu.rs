@@ -1,8 +1,4 @@
-use crate::draw;
-use crate::logic;
-use crate::theme;
-use crate::widget;
-use crate::characters::{hiragana, katakana};
+use crate::{core::{draw,logic,theme,widget}, characters::{hiragana, katakana}};
 
 pub fn page() {
     let mut theme = theme::theme(None);

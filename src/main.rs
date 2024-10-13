@@ -18,10 +18,12 @@ pub mod characters {
     pub mod katakana;
     pub mod other;
 }
-pub mod widget;
-pub mod draw;
-pub mod theme;
-pub mod logic;
+pub mod core {
+    pub mod widget;
+    pub mod draw;
+    pub mod theme;
+    pub mod logic;
+}
 pub mod menu;
 
 #[no_mangle]
