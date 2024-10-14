@@ -38,7 +38,7 @@ pub fn page() {
                         hiragana::a(logic::Point{x: 245, y: 160}, 0.4, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::a(logic::Point{x: 245, y: 155}, 0.4, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::a(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 2);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     1 => {
@@ -47,7 +47,7 @@ pub fn page() {
                         hiragana::i(logic::Point{x: 245, y: 160}, 0.4, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::i(logic::Point{x: 245, y: 155}, 0.4, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::i(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 1);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     2 => {
@@ -56,7 +56,7 @@ pub fn page() {
                         hiragana::u(logic::Point{x: 245, y: 160}, 0.4, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::u(logic::Point{x: 245, y: 155}, 0.4, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::u(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 2);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     3 => {
@@ -65,7 +65,7 @@ pub fn page() {
                         hiragana::e(logic::Point{x: 240, y: 160}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::e(logic::Point{x: 240, y: 155}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::e(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 3.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 1);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     _ => {}
@@ -87,7 +87,7 @@ pub fn page() {
                         katakana::i(logic::Point{x: 240, y: 155}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::i(logic::Point{x: 240, y: 150}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::i(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 4.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 2);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     2 => {
@@ -96,7 +96,7 @@ pub fn page() {
                         katakana::u(logic::Point{x: 240, y: 155}, 0.5, 4, theme.overlay, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         katakana::u(logic::Point{x: 240, y: 150}, 0.5, 4, theme.secondary_accent, 0, draw::Fastforwarding{enabled: false, scale: 1.0});
                         hiragana::u(logic::Point{x: 40, y: 40}, 1.2, 6, theme.secondary_accent, 10000, draw::Fastforwarding{enabled: true, scale: 4.0});
-                        widget::slider(logic::Point{x: 230, y: 90},theme, 4);
+                        widget::slider(logic::Point{x: 230, y: 90},theme, 3);
                         widget::info(logic::Point{x: 90, y: 15}, theme, draw::Text{text: "< / >\0", xoffset: 8, big: true, text_color: theme.text, bg_color: theme.tertiary_accent});
                     }
                     3 => {
