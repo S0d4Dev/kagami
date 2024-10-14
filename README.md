@@ -9,9 +9,7 @@ If you want to, feel free to browse the code.
 
 The hiragana, katakana and other characters (such as the comma) are available in the `src/characters` folder.
 
-The logic is using **Eadk**, a custom library made by numworks to interact with the calculator, with some draw calculations available in the `src/logic.rs` and `src/draw.rs` respectively.
-
-The menu, theme, and main files are also in the `src/` folder.
+The core program files lie in the `src/core` folder, and uses **Eadk**, a custom library made by Numworks to interact with the calculator. 
 
 ## Get the app
 In order to get the app, you can download the .nwa file from the **Releases page** or build it yourself :
