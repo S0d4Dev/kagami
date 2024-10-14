@@ -340,13 +340,11 @@ pub mod display {
             eadk_display_wait_for_vblank();
         }
     }
-    
-    /// # Safety
-    /// This function is unsafe because the text length is not known at compile time.
+
     #[inline]
-    pub unsafe fn draw_string(text: *const u8, point: Point, big: bool, col: Color, bg: Color) {
+    pub fn draw_string(text: &str, point: Point, big: bool, col: Color, bg: Color) {
         unsafe {
-            eadk_display_draw_string(text, point, big, col, bg);
+            eadk_display_draw_string(text.as_ptr(), point, big, col, bg);
         }
     }
 
