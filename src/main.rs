@@ -19,7 +19,6 @@ pub mod characters {
     pub mod other;
 }
 pub mod core {
-    pub mod widget;
     pub mod draw;
     pub mod theme;
     pub mod logic;

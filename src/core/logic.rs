@@ -1,9 +1,4 @@
 #[repr(C)]
-pub struct Color {
-    pub rgb565: u16
-}
-
-#[repr(C)]
 pub struct Rect {
     pub x: u16,
     pub y: u16,
@@ -320,16 +315,15 @@ pub mod keyboard {
 }
 pub mod display {
     use super::Rect;
-    use super::Color;
     use super::Point;
 
-    pub fn push_rect(rect: Rect, pixels: &[Color]) {
+    pub fn push_rect(rect: Rect, pixels: &[u16]) {
         unsafe {
             eadk_display_push_rect(rect, pixels.as_ptr());
         }
     }
 
-    pub fn push_rect_uniform(rect: Rect, color: Color) {
+    pub fn push_rect_uniform(rect: Rect, color: u16) {
         unsafe {
             eadk_display_push_rect_uniform(rect, color);
         }
@@ -342,17 +336,17 @@ pub mod display {
     }
 
     #[inline]
-    pub fn draw_string(text: &str, point: Point, big: bool, col: Color, bg: Color) {
+    pub fn draw_string(text: &str, point: Point, big: bool, col: u16, bg: u16) {
         unsafe {
             eadk_display_draw_string(text.as_ptr(), point, big, col, bg);
         }
     }
 
     extern "C" {
-        fn eadk_display_push_rect_uniform(rect: Rect, color: Color);
-        fn eadk_display_push_rect(rect: Rect, color: *const Color);
+        fn eadk_display_push_rect_uniform(rect: Rect, color: u16);
+        fn eadk_display_push_rect(rect: Rect, color: *const u16);
         fn eadk_display_wait_for_vblank();
-        fn eadk_display_draw_string(text: *const u8, point: Point, big: bool, col: Color, bg: Color);
+        fn eadk_display_draw_string(text: *const u8, point: Point, big: bool, col: u16, bg: u16);
     }
 }
 

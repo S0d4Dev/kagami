@@ -14,13 +14,6 @@ pub struct Fastforwarding {
     pub scale: f32,
 }
 
-pub fn clearscreen(default_color:u16) {
-    logic::display::push_rect_uniform(
-        logic::Rect{ x: 0, y: 0, width: 320, height: 240}, 
-        logic::Color{rgb565: default_color}
-    );
-}
-
 pub fn dot(pos: logic::Point, radius: u16, color: u16, delay: u32, fastforwarding: Fastforwarding) {
     for y in 0..(radius * 2) {
         let dy = y as i32 - radius as i32;
@@ -36,7 +29,7 @@ pub fn dot(pos: logic::Point, radius: u16, color: u16, delay: u32, fastforwardin
                 width: (dx * 2) as u16,
                 height: 1
             },
-            logic::Color { rgb565: color }
+            color
         );
     }
     if fastforwarding.enabled {
@@ -61,7 +54,7 @@ pub fn line(pos: logic::Point, length: u16, thickness: u16, color: u16, column: 
     if column {
         logic::display::push_rect_uniform(
             logic::Rect{x: pos.x-thickness+1, y: pos.y, width: (thickness*2)-1, height: length}, 
-            logic::Color {rgb565: color}
+            color
         );
         dot(
             logic::Point{x: pos.x+1, y: pos.y+length}, 
@@ -73,7 +66,7 @@ pub fn line(pos: logic::Point, length: u16, thickness: u16, color: u16, column: 
     } else {
         logic::display::push_rect_uniform(
             logic::Rect{x: pos.x, y: pos.y-thickness+1, width: length-1, height: (thickness*2)-1}, 
-            logic::Color {rgb565: color}
+            color
         );
         dot(
             logic::Point{x: pos.x+length, y: pos.y}, 
@@ -121,7 +114,7 @@ pub fn rounded_rect(pos: logic::Point, length: u16, height: u16, thickness: u16,
     logic::display::wait_for_vblank();
     logic::display::push_rect_uniform(
         logic::Rect{x: pos.x + 8, y: pos.y - thickness, width: length-16, height: thickness * 2}, 
-        logic::Color{rgb565: color}
+        color
     );
     curve(
         logic::Point{ x: pos.x + length - 7, y: pos.y},
@@ -135,7 +128,7 @@ pub fn rounded_rect(pos: logic::Point, length: u16, height: u16, thickness: u16,
     );
     logic::display::push_rect_uniform(
         logic::Rect{x: pos.x + length - thickness, y: pos.y + 8, width: thickness * 2, height: height - 16},
-        logic::Color{rgb565: color}
+        color
     );
     curve(
         logic::Point{ x: pos.x + length, y: pos.y + height - 7},
@@ -149,7 +142,7 @@ pub fn rounded_rect(pos: logic::Point, length: u16, height: u16, thickness: u16,
     );
     logic::display::push_rect_uniform(
         logic::Rect{x: pos.x + 8, y: pos.y + height - thickness, width: length - 16, height: thickness * 2},
-        logic::Color{rgb565: color}
+        color
     );
     curve(
         logic::Point{ x: pos.x + 7, y: pos.y + height},
@@ -163,7 +156,7 @@ pub fn rounded_rect(pos: logic::Point, length: u16, height: u16, thickness: u16,
     );
     logic::display::push_rect_uniform(
         logic::Rect{x: pos.x - thickness, y: pos.y + 8, width: thickness * 2, height: height - 16},
-        logic::Color{rgb565: color}
+        color
     );
     curve(
         logic::Point{ x: pos.x, y: pos.y + 7},
