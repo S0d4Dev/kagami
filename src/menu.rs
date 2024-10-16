@@ -18,7 +18,7 @@ fn canva(theme: theme::Theme) {
     logic::display::draw_string("shift\0", logic::Point{x: 219, y: 10}, false, theme.subtext, theme.bg);
     info(logic::Point{x: 275, y: 16}, theme);
     draw::line(logic::Point{x: 275, y: 16}, 30, 8, theme.secondary_accent, false);
-    logic::display::draw_string("paste\0", logic::Point{x: 274, y: 10}, false, theme.text, theme.secondary_accent);
+    logic::display::draw_string("paste\0", logic::Point{x: 273, y: 10}, false, theme.text, theme.secondary_accent);
     draw::line(logic::Point{x: 230, y: 55}, 70, 15, theme.overlay, false);
     draw::line(logic::Point{x: 230, y: 50}, 70, 16, theme.accent, false);
 }
@@ -73,6 +73,7 @@ pub fn page() {
         if needs_redraw {
             logic::display::draw_string("+ / -\0", logic::Point{x: 88, y: 9}, false, theme.subtext, theme.bg);
             clear_characters(theme);
+            logic::display::wait_for_vblank();
             draw::line(logic::Point{x: 230, y: 95}, 70, 16, theme.overlay, false);
             draw::line(logic::Point{x: 230, y: 90}, 70, 16, theme.accent, false);
             draw::line(logic::Point{x: 230, y: 90}, 70, 6, theme.bg, false);
